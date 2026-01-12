@@ -8,6 +8,11 @@ let factoryCount = 0;
 let mineCount = 0;
 let shipCount = 0;
 let rocketCount = 0;
+let spacestationCount = 0;
+let portalCount = 0;
+let timemachineCount = 0;
+let quantumcomputerCount = 0;
+let multiverseCount = 0;
 let totalCookiesEarned = 0;
 
 const cursorCostBase = 15;
@@ -18,6 +23,11 @@ const factoryCostBase = 10000;
 const mineCostBase = 20000;
 const shipCostBase = 50000;
 const rocketCostBase = 100000;
+const spacestationCostBase = 500000;
+const portalCostBase = 2000000;
+const timemachineCostBase = 10000000;
+const quantumcomputerCostBase = 50000000;
+const multiverseCostBase = 200000000;
 
 const achievements = [
     { id: 'firstCookie', name: 'First Cookie', desc: 'Click the cookie once', condition: () => cookies >= 1, bonus: 10, unlocked: false },
@@ -134,6 +144,11 @@ function updateDisplay() {
     document.getElementById('mineCount').textContent = mineCount;
     document.getElementById('shipCount').textContent = shipCount;
     document.getElementById('rocketCount').textContent = rocketCount;
+    document.getElementById('spacestationCount').textContent = spacestationCount;
+    document.getElementById('portalCount').textContent = portalCount;
+    document.getElementById('timemachineCount').textContent = timemachineCount;
+    document.getElementById('quantumcomputerCount').textContent = quantumcomputerCount;
+    document.getElementById('multiverseCount').textContent = multiverseCount;
 
     document.getElementById('cursorCost').textContent = Math.ceil(cursorCostBase * Math.pow(1.15, cursorCount));
     document.getElementById('grandmaCost').textContent = Math.ceil(grandmaCostBase * Math.pow(1.15, grandmaCount));
@@ -143,6 +158,11 @@ function updateDisplay() {
     document.getElementById('mineCost').textContent = Math.ceil(mineCostBase * Math.pow(1.15, mineCount));
     document.getElementById('shipCost').textContent = Math.ceil(shipCostBase * Math.pow(1.15, shipCount));
     document.getElementById('rocketCost').textContent = Math.ceil(rocketCostBase * Math.pow(1.15, rocketCount));
+    document.getElementById('spacestationCost').textContent = Math.ceil(spacestationCostBase * Math.pow(1.15, spacestationCount));
+    document.getElementById('portalCost').textContent = Math.ceil(portalCostBase * Math.pow(1.15, portalCount));
+    document.getElementById('timemachineCost').textContent = Math.ceil(timemachineCostBase * Math.pow(1.15, timemachineCount));
+    document.getElementById('quantumcomputerCost').textContent = Math.ceil(quantumcomputerCostBase * Math.pow(1.15, quantumcomputerCount));
+    document.getElementById('multiverseCost').textContent = Math.ceil(multiverseCostBase * Math.pow(1.15, multiverseCount));
 
     // Enable/disable buy buttons
     document.querySelector('#cursor button').disabled = cookies < Math.ceil(cursorCostBase * Math.pow(1.15, cursorCount));
@@ -153,6 +173,11 @@ function updateDisplay() {
     document.querySelector('#mine button').disabled = cookies < Math.ceil(mineCostBase * Math.pow(1.15, mineCount));
     document.querySelector('#ship button').disabled = cookies < Math.ceil(shipCostBase * Math.pow(1.15, shipCount));
     document.querySelector('#rocket button').disabled = cookies < Math.ceil(rocketCostBase * Math.pow(1.15, rocketCount));
+    document.querySelector('#spacestation button').disabled = cookies < Math.ceil(spacestationCostBase * Math.pow(1.15, spacestationCount));
+    document.querySelector('#portal button').disabled = cookies < Math.ceil(portalCostBase * Math.pow(1.15, portalCount));
+    document.querySelector('#timemachine button').disabled = cookies < Math.ceil(timemachineCostBase * Math.pow(1.15, timemachineCount));
+    document.querySelector('#quantumcomputer button').disabled = cookies < Math.ceil(quantumcomputerCostBase * Math.pow(1.15, quantumcomputerCount));
+    document.querySelector('#multiverse button').disabled = cookies < Math.ceil(multiverseCostBase * Math.pow(1.15, multiverseCount));
 
     // Unlock upgrades
     if (cursorCount >= 5) {
@@ -169,6 +194,21 @@ function updateDisplay() {
     }
     if (shipCount >= 1) {
         document.getElementById('rocket').style.display = 'block';
+    }
+    if (rocketCount >= 1) {
+        document.getElementById('spacestation').style.display = 'block';
+    }
+    if (spacestationCount >= 1) {
+        document.getElementById('portal').style.display = 'block';
+    }
+    if (portalCount >= 1) {
+        document.getElementById('timemachine').style.display = 'block';
+    }
+    if (timemachineCount >= 1) {
+        document.getElementById('quantumcomputer').style.display = 'block';
+    }
+    if (quantumcomputerCount >= 1) {
+        document.getElementById('multiverse').style.display = 'block';
     }
 
     // Check achievements
@@ -264,6 +304,11 @@ function saveGame() {
         mineCount,
         shipCount,
         rocketCount,
+        spacestationCount,
+        portalCount,
+        timemachineCount,
+        quantumcomputerCount,
+        multiverseCount,
         totalCookiesEarned,
         achievements: achievements.map(a => ({ id: a.id, unlocked: a.unlocked }))
     };
@@ -284,6 +329,11 @@ function loadGame() {
         mineCount = gameState.mineCount || 0;
         shipCount = gameState.shipCount || 0;
         rocketCount = gameState.rocketCount || 0;
+        spacestationCount = gameState.spacestationCount || 0;
+        portalCount = gameState.portalCount || 0;
+        timemachineCount = gameState.timemachineCount || 0;
+        quantumcomputerCount = gameState.quantumcomputerCount || 0;
+        multiverseCount = gameState.multiverseCount || 0;
         totalCookiesEarned = gameState.totalCookiesEarned || 0;
         if (gameState.achievements) {
             gameState.achievements.forEach(savedAch => {
@@ -291,7 +341,16 @@ function loadGame() {
                 if (ach) ach.unlocked = savedAch.unlocked;
             });
         }
+        // Recalculate CPS after loading
+        recalculateCPS();
     }
+}
+
+function recalculateCPS() {
+    cps = cursorCount * 0.1 + grandmaCount * 1 + farmCount * 8 + bakeryCount * 20 + 
+          factoryCount * 100 + mineCount * 500 + shipCount * 2000 + rocketCount * 10000 +
+          spacestationCount * 50000 + portalCount * 200000 + timemachineCount * 1000000 +
+          quantumcomputerCount * 5000000 + multiverseCount * 20000000;
 }
 
 function clickCookie() {
@@ -393,6 +452,46 @@ function buyUpgrade(type) {
                 cps += 10000;
             }
             break;
+        case 'spacestation':
+            cost = Math.ceil(spacestationCostBase * Math.pow(1.15, spacestationCount));
+            if (cookies >= cost) {
+                cookies -= cost;
+                spacestationCount++;
+                cps += 50000;
+            }
+            break;
+        case 'portal':
+            cost = Math.ceil(portalCostBase * Math.pow(1.15, portalCount));
+            if (cookies >= cost) {
+                cookies -= cost;
+                portalCount++;
+                cps += 200000;
+            }
+            break;
+        case 'timemachine':
+            cost = Math.ceil(timemachineCostBase * Math.pow(1.15, timemachineCount));
+            if (cookies >= cost) {
+                cookies -= cost;
+                timemachineCount++;
+                cps += 1000000;
+            }
+            break;
+        case 'quantumcomputer':
+            cost = Math.ceil(quantumcomputerCostBase * Math.pow(1.15, quantumcomputerCount));
+            if (cookies >= cost) {
+                cookies -= cost;
+                quantumcomputerCount++;
+                cps += 5000000;
+            }
+            break;
+        case 'multiverse':
+            cost = Math.ceil(multiverseCostBase * Math.pow(1.15, multiverseCount));
+            if (cookies >= cost) {
+                cookies -= cost;
+                multiverseCount++;
+                cps += 20000000;
+            }
+            break;
     }
     updateDisplay();
 }
@@ -417,6 +516,11 @@ function restartGame() {
     mineCount = 0;
     shipCount = 0;
     rocketCount = 0;
+    spacestationCount = 0;
+    portalCount = 0;
+    timemachineCount = 0;
+    quantumcomputerCount = 0;
+    multiverseCount = 0;
     totalCookiesEarned = 0;
     
     // Reset achievements
@@ -428,6 +532,11 @@ function restartGame() {
     document.getElementById('mine').style.display = 'none';
     document.getElementById('ship').style.display = 'none';
     document.getElementById('rocket').style.display = 'none';
+    document.getElementById('spacestation').style.display = 'none';
+    document.getElementById('portal').style.display = 'none';
+    document.getElementById('timemachine').style.display = 'none';
+    document.getElementById('quantumcomputer').style.display = 'none';
+    document.getElementById('multiverse').style.display = 'none';
     
     // Clear localStorage
     localStorage.removeItem('cookieClickerSave');
@@ -481,6 +590,13 @@ document.getElementById('feedbackForm').addEventListener('submit', function(even
     alert(`Thank you for your feedback, ${name}! We appreciate your input.`);
     document.getElementById('feedbackForm').reset();
 });
+
+// Confirm restart function
+function confirmRestart() {
+    if (confirm("Are you sure you want to restart the game? All your progress will be lost!")) {
+        restartGame();
+    }
+}
 
 // Initialize language
 document.getElementById('languageSelect').value = currentLanguage;

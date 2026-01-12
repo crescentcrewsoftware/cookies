@@ -194,8 +194,8 @@ body {
 }
 
 #cookie {
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
     cursor: pointer;
     transition: transform 0.1s;
     position: relative;
@@ -250,4 +250,13 @@ body {
 .upgrade button:disabled {
     background-color: #cccccc;
     cursor: not-allowed;
+}
+
+#game-controls {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#game-controls button:hover {
+    background-color: #cc3333 !important;
 }

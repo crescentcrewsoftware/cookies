@@ -18,10 +18,6 @@
             <div id="stats">
                 <p>Cookies: <span id="cookieCount">0</span></p>
                 <p>Cookies per second: <span id="cps">0</span></p>
-                <p>Language: <select id="languageSelect" onchange="changeLanguage(this.value)">
-                    <option value="en">English</option>
-                    <option value="es">Español</option>
-                </select></p>
             </div>
         </div>
         <div id="upgrades">
@@ -82,31 +78,51 @@
                 <p>Owned: <span id="rocketCount">0</span></p>
                 <button onclick="buyUpgrade('rocket')">Buy</button>
             </div>
-            <button id="feedbackBtn" onclick="openFeedback()">Feedback</button>
+            <div class="upgrade" id="spacestation" style="display: none;">
+                <div class="upgrade-icon">🛰️</div>
+                <p>Space Station - Cost: <span id="spacestationCost">500000</span> cookies</p>
+                <p>Each space station produces 50000 cookies per second</p>
+                <p>Owned: <span id="spacestationCount">0</span></p>
+                <button onclick="buyUpgrade('spacestation')">Buy</button>
+            </div>
+            <div class="upgrade" id="portal">
+                <div class="upgrade-icon">🌀</div>
+                <p>Portal - Cost: <span id="portalCost">2000000</span> cookies</p>
+                <p>Each portal produces 200000 cookies per second</p>
+                <p>Owned: <span id="portalCount">0</span></p>
+                <button onclick="buyUpgrade('portal')">Buy</button>
+            </div>
+            <div class="upgrade" id="timemachine">
+                <div class="upgrade-icon">⏰</div>
+                <p>Time Machine - Cost: <span id="timemachineCost">10000000</span> cookies</p>
+                <p>Each time machine produces 1000000 cookies per second</p>
+                <p>Owned: <span id="timemachineCount">0</span></p>
+                <button onclick="buyUpgrade('timemachine')">Buy</button>
+            </div>
+            <div class="upgrade" id="quantumcomputer">
+                <div class="upgrade-icon">🖥️</div>
+                <p>Quantum Computer - Cost: <span id="quantumcomputerCost">50000000</span> cookies</p>
+                <p>Each quantum computer produces 5000000 cookies per second</p>
+                <p>Owned: <span id="quantumcomputerCount">0</span></p>
+                <button onclick="buyUpgrade('quantumcomputer')">Buy</button>
+            </div>
+            <div class="upgrade" id="multiverse">
+                <div class="upgrade-icon">🌌</div>
+                <p>Multiverse - Cost: <span id="multiverseCost">200000000</span> cookies</p>
+                <p>Each multiverse produces 20000000 cookies per second</p>
+                <p>Owned: <span id="multiverseCount">0</span></p>
+                <button onclick="buyUpgrade('multiverse')">Buy</button>
+            </div>
         </div>
-    </div>
-    <div id="feedback-modal" class="modal" style="display: none;">
-        <div class="modal-content">
-            <span class="close" onclick="closeFeedback()">&times;</span>
-            <h2 id="feedback-title">Feedback</h2>
-            <form id="feedbackForm">
-                <label for="name">Name:</label>
-                <input type="text" id="name" required>
-                
-                <label for="email">Email:</label>
-                <input type="email" id="email" required>
-                
-                <label for="message">Message:</label>
-                <textarea id="message" rows="4" required></textarea>
-                
-                <button type="submit">Submit</button>
-            </form>
+        <div id="game-controls">
+            <button onclick="confirmRestart()" style="background-color: #ff4444; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-top: 20px;">Restart Game</button>
         </div>
     </div>
     <div id="win-screen" style="display: none;">
         <div id="win-content">
             <h2>Congratulations!</h2>
-            <p id="win-message">You have beat the game by earning 1,000,000,000,000,000 cookies total!</p>
+            <p>You have beat the game by earning 1,000,000,000,000,000 cookies total!</p>
+            <p>Care to start again?</p>
             <button onclick="restartGame()">Restart</button>
         </div>
     </div>
