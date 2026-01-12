@@ -1,0 +1,253 @@
+#falling-cookies {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 3;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #001122;
+    margin: 0;
+    padding: 20px;
+}
+
+#win-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+#win-content {
+    background-color: #002244;
+    color: white;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+#win-content h2 {
+    margin-top: 0;
+}
+
+#win-content button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+#feedbackBtn {
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+#feedbackBtn:hover {
+    background-color: #007B9A;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 11;
+}
+
+.modal-content {
+    background-color: #002244;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #ccc;
+}
+
+#feedbackForm {
+    display: flex;
+    flex-direction: column;
+}
+
+#feedbackForm label {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+#feedbackForm input,
+#feedbackForm textarea {
+    padding: 8px;
+    border: 1px solid #004466;
+    border-radius: 3px;
+    background-color: #003355;
+    color: white;
+}
+
+#feedbackForm button {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#feedbackForm button:hover {
+    background-color: #45a049;
+}
+
+.falling-cookie {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    animation: fall 2s linear forwards;
+}
+
+@keyframes fall {
+    0% {
+        top: -60px;
+        left: calc(var(--start-left) * 1%);
+        transform: rotate(0deg);
+    }
+    25% {
+        left: calc(var(--start-left) * 1% + var(--sway1) * 1%);
+    }
+    50% {
+        left: calc(var(--start-left) * 1% + var(--sway2) * 1%);
+    }
+    75% {
+        left: calc(var(--start-left) * 1% + var(--sway3) * 1%);
+    }
+    100% {
+        top: 100%;
+        left: calc(var(--start-left) * 1%);
+        transform: rotate(360deg);
+    }
+}
+
+#game {
+    text-align: center;
+    background-color: #002244;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 20px;
+}
+
+#main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+#cookie-container {
+    margin: 20px 0;
+    position: relative;
+}
+
+#cookie {
+    width: 300px;
+    height: 300px;
+    cursor: pointer;
+    transition: transform 0.1s;
+    position: relative;
+    z-index: 0;
+}
+
+#cookie:hover {
+    transform: scale(1.05);
+}
+
+#cookie:active {
+    transform: scale(0.95);
+}
+
+#stats {
+    margin: 20px 0;
+    font-size: 18px;
+}
+
+
+
+.upgrade {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #004466;
+    border-radius: 5px;
+    background-color: #003355;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.upgrade-icon {
+    font-size: 24px;
+    width: 30px;
+    text-align: center;
+}
+
+.upgrade button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.upgrade button:hover {
+    background-color: #45a049;
+}
+
+.upgrade button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}

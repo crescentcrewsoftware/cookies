@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Clicker Game</title>
+    <link rel="stylesheet" href="cookie-style.css">
+</head>
+<body>
+    <div id="game">
+        <h1>Cookie Clicker</h1>
+        <div id="falling-cookies"></div>
+        <div id="main-content">
+            <div id="falling-cookies"></div>
+            <div id="cookie-container">
+                <img id="cookie" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f36a.svg" alt="Cookie" onclick="clickCookie()">
+            </div>
+            <div id="stats">
+                <p>Cookies: <span id="cookieCount">0</span></p>
+                <p>Cookies per second: <span id="cps">0</span></p>
+            </div>
+        </div>
+        <div id="upgrades">
+            <h2>Upgrades</h2>
+            <div class="upgrade" id="cursor">
+                <div class="upgrade-icon">🖱️</div>
+                <p>Cursor - Cost: <span id="cursorCost">15</span> cookies</p>
+                <p>Each cursor produces 0.1 cookies per second</p>
+                <p>Owned: <span id="cursorCount">0</span></p>
+                <button onclick="buyUpgrade('cursor')">Buy</button>
+            </div>
+            <div class="upgrade" id="grandma">
+                <div class="upgrade-icon">👵</div>
+                <p>Grandma - Cost: <span id="grandmaCost">100</span> cookies</p>
+                <p>Each grandma produces 1 cookie per second</p>
+                <p>Owned: <span id="grandmaCount">0</span></p>
+                <button onclick="buyUpgrade('grandma')">Buy</button>
+            </div>
+            <div class="upgrade" id="farm">
+                <div class="upgrade-icon">🚜</div>
+                <p>Farm - Cost: <span id="farmCost">1100</span> cookies</p>
+                <p>Each farm produces 8 cookies per second</p>
+                <p>Owned: <span id="farmCount">0</span></p>
+                <button onclick="buyUpgrade('farm')">Buy</button>
+            </div>
+            <div class="upgrade" id="bakery" style="display: none;">
+                <div class="upgrade-icon">🥖</div>
+                <p>Bakery - Cost: <span id="bakeryCost">5000</span> cookies</p>
+                <p>Each bakery produces 20 cookies per second</p>
+                <p>Owned: <span id="bakeryCount">0</span></p>
+                <button onclick="buyUpgrade('bakery')">Buy</button>
+            </div>
+            <div class="upgrade" id="factory" style="display: none;">
+                <div class="upgrade-icon">🏭</div>
+                <p>Factory - Cost: <span id="factoryCost">10000</span> cookies</p>
+                <p>Each factory produces 100 cookies per second</p>
+                <p>Owned: <span id="factoryCount">0</span></p>
+                <button onclick="buyUpgrade('factory')">Buy</button>
+            </div>
+            <div class="upgrade" id="mine" style="display: none;">
+                <div class="upgrade-icon">⛏️</div>
+                <p>Mine - Cost: <span id="mineCost">20000</span> cookies</p>
+                <p>Each mine produces 500 cookies per second</p>
+                <p>Owned: <span id="mineCount">0</span></p>
+                <button onclick="buyUpgrade('mine')">Buy</button>
+            </div>
+            <div class="upgrade" id="ship" style="display: none;">
+                <div class="upgrade-icon">🚢</div>
+                <p>Ship - Cost: <span id="shipCost">50000</span> cookies</p>
+                <p>Each ship produces 2000 cookies per second</p>
+                <p>Owned: <span id="shipCount">0</span></p>
+                <button onclick="buyUpgrade('ship')">Buy</button>
+            </div>
+            <div class="upgrade" id="rocket" style="display: none;">
+                <div class="upgrade-icon">🚀</div>
+                <p>Rocket - Cost: <span id="rocketCost">100000</span> cookies</p>
+                <p>Each rocket produces 10000 cookies per second</p>
+                <p>Owned: <span id="rocketCount">0</span></p>
+                <button onclick="buyUpgrade('rocket')">Buy</button>
+            </div>
+        </div>
+    </div>
+    <div id="win-screen" style="display: none;">
+        <div id="win-content">
+            <h2>Congratulations!</h2>
+            <p>You have beat the game by earning 1,000,000,000,000,000 cookies total!</p>
+            <p>Care to start again?</p>
+            <button onclick="restartGame()">Restart</button>
+        </div>
+    </div>
+    <script src="cookie-script.js"></script>
+</body>
+</html>
