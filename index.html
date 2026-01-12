@@ -3,199 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bob's Computing Wikipedia</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Cookie Clicker Game</title>
+    <link rel="stylesheet" href="cookie-style.css">
 </head>
 <body>
-    <header>
-        <h1>Bob's Computing Wikipedia</h1>
-        <nav>
-            <input type="text" id="search" placeholder="Search articles...">
-            <button onclick="search()">Search</button>
-            <div id="auth">
-                <button id="loginBtn">Login</button>
-                <button id="signupBtn">Sign Up</button>
-                <span id="userInfo" style="display:none;">Welcome, <span id="username"></span>! <button onclick="logout()">Logout</button> <button id="profileBtn">Profile</button> <button id="chatBtn">Chat</button></span>
+    <div id="game">
+        <h1>Cookie Clicker</h1>
+        <div id="falling-cookies"></div>
+        <div id="main-content">
+            <div id="falling-cookies"></div>
+            <div id="cookie-container">
+                <img id="cookie" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f36a.svg" alt="Cookie" onclick="clickCookie()">
             </div>
-        </nav>
-    </header>
-    <main>
-        <section id="articles">
-            <h2>Featured Articles</h2>
-            <ul>
-                <li><a href="article1.html">Article 1: Introduction to Programming</a></li>
-                <li><a href="article2.html">Article 2: History of the Internet</a></li>
-                <li><a href="article3.html">Article 3: Artificial Intelligence</a></li>
-                <li><a href="article4.html">Article 4: Computer Hardware</a></li>
-                <li><a href="article5.html">Article 5: Software Development</a></li>
-                <li><a href="article6.html">Article 6: Operating Systems</a></li>
-                <li><a href="article7.html">Article 7: Computing Topic 7</a></li>
-                <li><a href="article8.html">Article 8: Computing Topic 8</a></li>
-                <li><a href="article9.html">Article 9: Computing Topic 9</a></li>
-                <li><a href="article10.html">Article 10: Computing Topic 10</a></li>
-                <li><a href="article11.html">Article 11: Computing Topic 11</a></li>
-                <li><a href="article12.html">Article 12: Computing Topic 12</a></li>
-                <li><a href="article13.html">Article 13: Computing Topic 13</a></li>
-                <li><a href="article14.html">Article 14: Computing Topic 14</a></li>
-                <li><a href="article15.html">Article 15: Computing Topic 15</a></li>
-                <li><a href="article16.html">Article 16: Computing Topic 16</a></li>
-                <li><a href="article17.html">Article 17: Computing Topic 17</a></li>
-                <li><a href="article18.html">Article 18: Computing Topic 18</a></li>
-                <li><a href="article19.html">Article 19: Computing Topic 19</a></li>
-                <li><a href="article20.html">Article 20: Computing Topic 20</a></li>
-                <li><a href="article21.html">Article 21: Computing Topic 21</a></li>
-                <li><a href="article22.html">Article 22: Computing Topic 22</a></li>
-                <li><a href="article23.html">Article 23: Computing Topic 23</a></li>
-                <li><a href="article24.html">Article 24: Computing Topic 24</a></li>
-                <li><a href="article25.html">Article 25: Computing Topic 25</a></li>
-                <li><a href="article26.html">Article 26: Computing Topic 26</a></li>
-                <li><a href="article27.html">Article 27: Computing Topic 27</a></li>
-                <li><a href="article28.html">Article 28: Computing Topic 28</a></li>
-                <li><a href="article29.html">Article 29: Computing Topic 29</a></li>
-                <li><a href="article30.html">Article 30: Computing Topic 30</a></li>
-                <li><a href="article31.html">Article 31: Computing Topic 31</a></li>
-                <li><a href="article32.html">Article 32: Computing Topic 32</a></li>
-                <li><a href="article33.html">Article 33: Computing Topic 33</a></li>
-                <li><a href="article34.html">Article 34: Computing Topic 34</a></li>
-                <li><a href="article35.html">Article 35: Computing Topic 35</a></li>
-                <li><a href="article36.html">Article 36: Computing Topic 36</a></li>
-                <li><a href="article37.html">Article 37: Computing Topic 37</a></li>
-                <li><a href="article38.html">Article 38: Computing Topic 38</a></li>
-                <li><a href="article39.html">Article 39: Computing Topic 39</a></li>
-                <li><a href="article40.html">Article 40: Computing Topic 40</a></li>
-                <li><a href="article41.html">Article 41: Computing Topic 41</a></li>
-                <li><a href="article42.html">Article 42: Computing Topic 42</a></li>
-                <li><a href="article43.html">Article 43: Computing Topic 43</a></li>
-                <li><a href="article44.html">Article 44: Computing Topic 44</a></li>
-                <li><a href="article45.html">Article 45: Computing Topic 45</a></li>
-                <li><a href="article46.html">Article 46: Computing Topic 46</a></li>
-                <li><a href="article47.html">Article 47: Computing Topic 47</a></li>
-                <li><a href="article48.html">Article 48: Computing Topic 48</a></li>
-                <li><a href="article49.html">Article 49: Computing Topic 49</a></li>
-                <li><a href="article50.html">Article 50: Computing Topic 50</a></li>
-                <li><a href="article51.html">Article 51: Computing Topic 51</a></li>
-                <li><a href="article52.html">Article 52: Computing Topic 52</a></li>
-                <li><a href="article53.html">Article 53: Computing Topic 53</a></li>
-                <li><a href="article54.html">Article 54: Computing Topic 54</a></li>
-                <li><a href="article55.html">Article 55: Computing Topic 55</a></li>
-                <li><a href="article56.html">Article 56: Computing Topic 56</a></li>
-                <li><a href="article57.html">Article 57: Computing Topic 57</a></li>
-                <li><a href="article58.html">Article 58: Computing Topic 58</a></li>
-                <li><a href="article59.html">Article 59: Computing Topic 59</a></li>
-                <li><a href="article60.html">Article 60: Computing Topic 60</a></li>
-                <li><a href="article61.html">Article 61: Computing Topic 61</a></li>
-                <li><a href="article62.html">Article 62: Computing Topic 62</a></li>
-                <li><a href="article63.html">Article 63: Computing Topic 63</a></li>
-                <li><a href="article64.html">Article 64: Computing Topic 64</a></li>
-                <li><a href="article65.html">Article 65: Computing Topic 65</a></li>
-                <li><a href="article66.html">Article 66: Computing Topic 66</a></li>
-                <li><a href="article67.html">Article 67: Computing Topic 67</a></li>
-                <li><a href="article68.html">Article 68: Computing Topic 68</a></li>
-                <li><a href="article69.html">Article 69: Computing Topic 69</a></li>
-                <li><a href="article70.html">Article 70: Computing Topic 70</a></li>
-                <li><a href="article71.html">Article 71: Computing Topic 71</a></li>
-                <li><a href="article72.html">Article 72: Computing Topic 72</a></li>
-                <li><a href="article73.html">Article 73: Computing Topic 73</a></li>
-                <li><a href="article74.html">Article 74: Computing Topic 74</a></li>
-                <li><a href="article75.html">Article 75: Computing Topic 75</a></li>
-                <li><a href="article76.html">Article 76: Computing Topic 76</a></li>
-                <li><a href="article77.html">Article 77: Computing Topic 77</a></li>
-                <li><a href="article78.html">Article 78: Computing Topic 78</a></li>
-                <li><a href="article79.html">Article 79: Computing Topic 79</a></li>
-                <li><a href="article80.html">Article 80: Computing Topic 80</a></li>
-                <li><a href="article81.html">Article 81: Computing Topic 81</a></li>
-                <li><a href="article82.html">Article 82: Computing Topic 82</a></li>
-                <li><a href="article83.html">Article 83: Computing Topic 83</a></li>
-                <li><a href="article84.html">Article 84: Computing Topic 84</a></li>
-                <li><a href="article85.html">Article 85: Computing Topic 85</a></li>
-                <li><a href="article86.html">Article 86: Computing Topic 86</a></li>
-                <li><a href="article87.html">Article 87: Computing Topic 87</a></li>
-                <li><a href="article88.html">Article 88: Computing Topic 88</a></li>
-                <li><a href="article89.html">Article 89: Computing Topic 89</a></li>
-                <li><a href="article90.html">Article 90: Computing Topic 90</a></li>
-                <li><a href="article91.html">Article 91: Computing Topic 91</a></li>
-                <li><a href="article92.html">Article 92: Computing Topic 92</a></li>
-                <li><a href="article93.html">Article 93: Computing Topic 93</a></li>
-                <li><a href="article94.html">Article 94: Computing Topic 94</a></li>
-                <li><a href="article95.html">Article 95: Computing Topic 95</a></li>
-                <li><a href="article96.html">Article 96: Computing Topic 96</a></li>
-                <li><a href="article97.html">Article 97: Computing Topic 97</a></li>
-                <li><a href="article98.html">Article 98: Computing Topic 98</a></li>
-                <li><a href="article99.html">Article 99: Computing Topic 99</a></li>
-                <li><a href="article100.html">Article 100: Computing Topic 100</a></li>
-                <li><a href="article101.html">Article 101: Computing Topic 101</a></li>
-                <li><a href="article102.html">Article 102: Computing Topic 102</a></li>
-                <li><a href="article103.html">Article 103: Computing Topic 103</a></li>
-                <li><a href="article104.html">Article 104: Computing Topic 104</a></li>
-                <li><a href="article105.html">Article 105: Computing Topic 105</a></li>
-                <li><a href="article106.html">Article 106: Computing Topic 106</a></li>
-                <li><a href="cookie-clicker.html">Cookie Clicker Game</a></li>
-            </ul>
-        </section>
-    </main>
-
-    <!-- Login Modal -->
-    <div id="loginModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('loginModal')">&times;</span>
-            <h2>Login</h2>
-            <form id="loginForm">
-                <label for="loginUsername">Username:</label>
-                <input type="text" id="loginUsername" required>
-                <label for="loginPassword">Password:</label>
-                <input type="password" id="loginPassword" required>
-                <button type="submit">Login</button>
-            </form>
+            <div id="stats">
+                <p>Cookies: <span id="cookieCount">0</span></p>
+                <p>Cookies per second: <span id="cps">0</span></p>
+            </div>
+        </div>
+        <div id="upgrades">
+            <h2>Upgrades</h2>
+            <div class="upgrade" id="cursor">
+                <div class="upgrade-icon">🖱️</div>
+                <p>Cursor - Cost: <span id="cursorCost">15</span> cookies</p>
+                <p>Each cursor produces 0.1 cookies per second</p>
+                <p>Owned: <span id="cursorCount">0</span></p>
+                <button onclick="buyUpgrade('cursor')">Buy</button>
+            </div>
+            <div class="upgrade" id="grandma">
+                <div class="upgrade-icon">👵</div>
+                <p>Grandma - Cost: <span id="grandmaCost">100</span> cookies</p>
+                <p>Each grandma produces 1 cookie per second</p>
+                <p>Owned: <span id="grandmaCount">0</span></p>
+                <button onclick="buyUpgrade('grandma')">Buy</button>
+            </div>
+            <div class="upgrade" id="farm">
+                <div class="upgrade-icon">🚜</div>
+                <p>Farm - Cost: <span id="farmCost">1100</span> cookies</p>
+                <p>Each farm produces 8 cookies per second</p>
+                <p>Owned: <span id="farmCount">0</span></p>
+                <button onclick="buyUpgrade('farm')">Buy</button>
+            </div>
+            <div class="upgrade" id="bakery" style="display: none;">
+                <div class="upgrade-icon">🥖</div>
+                <p>Bakery - Cost: <span id="bakeryCost">5000</span> cookies</p>
+                <p>Each bakery produces 20 cookies per second</p>
+                <p>Owned: <span id="bakeryCount">0</span></p>
+                <button onclick="buyUpgrade('bakery')">Buy</button>
+            </div>
+            <div class="upgrade" id="factory" style="display: none;">
+                <div class="upgrade-icon">🏭</div>
+                <p>Factory - Cost: <span id="factoryCost">10000</span> cookies</p>
+                <p>Each factory produces 100 cookies per second</p>
+                <p>Owned: <span id="factoryCount">0</span></p>
+                <button onclick="buyUpgrade('factory')">Buy</button>
+            </div>
+            <div class="upgrade" id="mine" style="display: none;">
+                <div class="upgrade-icon">⛏️</div>
+                <p>Mine - Cost: <span id="mineCost">20000</span> cookies</p>
+                <p>Each mine produces 500 cookies per second</p>
+                <p>Owned: <span id="mineCount">0</span></p>
+                <button onclick="buyUpgrade('mine')">Buy</button>
+            </div>
+            <div class="upgrade" id="ship" style="display: none;">
+                <div class="upgrade-icon">🚢</div>
+                <p>Ship - Cost: <span id="shipCost">50000</span> cookies</p>
+                <p>Each ship produces 2000 cookies per second</p>
+                <p>Owned: <span id="shipCount">0</span></p>
+                <button onclick="buyUpgrade('ship')">Buy</button>
+            </div>
+            <div class="upgrade" id="rocket" style="display: none;">
+                <div class="upgrade-icon">🚀</div>
+                <p>Rocket - Cost: <span id="rocketCost">100000</span> cookies</p>
+                <p>Each rocket produces 10000 cookies per second</p>
+                <p>Owned: <span id="rocketCount">0</span></p>
+                <button onclick="buyUpgrade('rocket')">Buy</button>
+            </div>
+            <div class="upgrade" id="spacestation" style="display: none;">
+                <div class="upgrade-icon">🛰️</div>
+                <p>Space Station - Cost: <span id="spacestationCost">500000</span> cookies</p>
+                <p>Each space station produces 50000 cookies per second</p>
+                <p>Owned: <span id="spacestationCount">0</span></p>
+                <button onclick="buyUpgrade('spacestation')">Buy</button>
+            </div>
+            <div class="upgrade" id="portal">
+                <div class="upgrade-icon">🌀</div>
+                <p>Portal - Cost: <span id="portalCost">2000000</span> cookies</p>
+                <p>Each portal produces 200000 cookies per second</p>
+                <p>Owned: <span id="portalCount">0</span></p>
+                <button onclick="buyUpgrade('portal')">Buy</button>
+            </div>
+            <div class="upgrade" id="timemachine">
+                <div class="upgrade-icon">⏰</div>
+                <p>Time Machine - Cost: <span id="timemachineCost">10000000</span> cookies</p>
+                <p>Each time machine produces 1000000 cookies per second</p>
+                <p>Owned: <span id="timemachineCount">0</span></p>
+                <button onclick="buyUpgrade('timemachine')">Buy</button>
+            </div>
+            <div class="upgrade" id="quantumcomputer">
+                <div class="upgrade-icon">🖥️</div>
+                <p>Quantum Computer - Cost: <span id="quantumcomputerCost">50000000</span> cookies</p>
+                <p>Each quantum computer produces 5000000 cookies per second</p>
+                <p>Owned: <span id="quantumcomputerCount">0</span></p>
+                <button onclick="buyUpgrade('quantumcomputer')">Buy</button>
+            </div>
+            <div class="upgrade" id="multiverse">
+                <div class="upgrade-icon">🌌</div>
+                <p>Multiverse - Cost: <span id="multiverseCost">200000000</span> cookies</p>
+                <p>Each multiverse produces 20000000 cookies per second</p>
+                <p>Owned: <span id="multiverseCount">0</span></p>
+                <button onclick="buyUpgrade('multiverse')">Buy</button>
+            </div>
+        </div>
+        <div id="game-controls">
+            <button onclick="confirmRestart()" style="background-color: #ff4444; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-top: 20px;">Restart Game</button>
         </div>
     </div>
-
-    <!-- Signup Modal -->
-    <div id="signupModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('signupModal')">&times;</span>
-            <h2>Sign Up</h2>
-            <form id="signupForm">
-                <label for="signupUsername">Username:</label>
-                <input type="text" id="signupUsername" required>
-                <label for="signupPassword">Password:</label>
-                <input type="password" id="signupPassword" required>
-                <label for="signupEmail">Email:</label>
-                <input type="email" id="signupEmail" required>
-                <button type="submit">Sign Up</button>
-            </form>
+    <div id="win-screen" style="display: none;">
+        <div id="win-content">
+            <h2>Congratulations!</h2>
+            <p>You have beat the game by earning 1,000,000,000,000,000 cookies total!</p>
+            <p>Care to start again?</p>
+            <button onclick="restartGame()">Restart</button>
         </div>
     </div>
-
-    <!-- Profile Modal -->
-    <div id="profileModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('profileModal')">&times;</span>
-            <h2>Edit Profile</h2>
-            <form id="profileForm">
-                <label for="profileUsername">Username:</label>
-                <input type="text" id="profileUsername" readonly>
-                <label for="profileEmail">Email:</label>
-                <input type="email" id="profileEmail" required>
-                <label for="profileBio">Bio:</label>
-                <textarea id="profileBio" rows="4"></textarea>
-                <button type="submit">Save Profile</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Chat Modal -->
-    <div id="chatModal" class="modal">
-        <div class="modal-content chat-modal">
-            <span class="close" onclick="closeModal('chatModal')">&times;</span>
-            <h2>Global Chat</h2>
-            <div id="chatMessages"></div>
-            <form id="chatForm">
-                <input type="text" id="chatInput" placeholder="Type a message..." required>
-                <button type="submit">Send</button>
-            </form>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+    <script src="cookie-script.js"></script>
 </body>
 </html>
